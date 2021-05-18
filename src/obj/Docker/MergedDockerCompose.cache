@@ -1,0 +1,27 @@
+services:
+  catalog.api:
+    build:
+      context: C:\Users\Pronet\Desktop\ownProjects\AspnetMicroservices\src
+      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+    container_name: catalog.api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DatabaseSettings:ConnectionString: mongodb://catalogdb:27017
+    image: catalogapi
+    ports:
+    - published: 8000
+      target: 80
+    volumes:
+    - C:\Users\Pronet\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+  catalogdb:
+    container_name: catalogdb
+    image: mongo
+    ports:
+    - published: 27017
+      target: 27017
+    restart: always
+    volumes:
+    - mongo_data:/data/db:rw
+version: '3.4'
+volumes:
+  mongo_data: {}
