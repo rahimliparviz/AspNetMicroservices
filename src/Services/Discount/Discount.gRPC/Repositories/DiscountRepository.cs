@@ -1,9 +1,9 @@
-﻿using Dapper;
-using Discount.API.Entities;
-using System.Data;
+﻿using System.Data;
 using System.Threading.Tasks;
+using Dapper;
+using Discount.gRPC.Entities;
 
-namespace Discount.API.Repositories
+namespace Discount.gRPC.Repositories
 {
     public class DiscountRepository : IDiscountRepository
     {
@@ -19,7 +19,7 @@ namespace Discount.API.Repositories
             var coupon = await _connection.QueryFirstOrDefaultAsync<Coupon>
                 ("SELECT * FROM Coupon WHERE ProductName = @ProductName", new { ProductName = productName });
 
-            return coupon ?? new Coupon { ProductName = "No Discount", Amount = 0, Description = "No Discount Discount for this product" };
+            return coupon ?? new Coupon { ProductName = "No Discount", Amount = 0, Description = "No Discount Desc" };
         }
 
 
