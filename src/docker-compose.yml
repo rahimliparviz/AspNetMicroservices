@@ -1,9 +1,6 @@
 version: '3.4'
 
-services:
-  portainer:
-    image: portainer/portainer-ce
-    
+services:   
   catalogdb:
     image: mongo
     
@@ -14,7 +11,11 @@ services:
     image: postgres
     
   orderdb:
+#    image: postgres
     image: mcr.microsoft.com/mssql/server:2017-latest
+    
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
     
   pgadmin:
     image: dpage/pgadmin4

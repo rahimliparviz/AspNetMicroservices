@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Ordering.Application.Features.Commands.CheckoutOrderCommand;
+using Ordering.Application.Features.Commands.CheckoutOrder;
 using Ordering.Application.Features.Commands.DeleteOrder;
 using Ordering.Application.Features.Commands.UpdateOrder;
 using Ordering.Application.Features.Queries.GetOrderList;

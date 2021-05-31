@@ -9,7 +9,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+        <PackageReference Include="MassTransit" Version="7.1.8" />
+        <PackageReference Include="MassTransit.AspNetCore" Version="7.1.8" />
+        <PackageReference Include="MassTransit.RabbitMQ" Version="7.1.8" />
         <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.2" />
+
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.4">
           <PrivateAssets>all</PrivateAssets>
@@ -24,6 +29,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\BuldingBlocks\EventBus.Messages\EventBus.Messages.csproj" />
       <ProjectReference Include="..\Ordering.Application\Ordering.Application.csproj" />
       <ProjectReference Include="..\Ordering.Infrastructure\Ordering.Infrastructure.csproj" />
     </ItemGroup>
