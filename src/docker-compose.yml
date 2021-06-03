@@ -59,12 +59,18 @@ services:
       context: .
       dockerfile: ApiGateways/OcelotAPiGw/Dockerfile
 
+  api.aggregator:
+    image: ${DOCKER_REGISTRY-}apiaggregator
+    build:
+      context: .
+      dockerfile: ApiGateways/API.Aggregator/Dockerfile
+
 volumes:
   mongo_data:
-  portainer_data:
   postgres_data:
   pgadmin_data:
     
+
 
 
 
