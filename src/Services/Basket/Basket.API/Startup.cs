@@ -1,6 +1,7 @@
 using System;
 using Basket.API.GrpcServices;
 using Basket.API.Repositories;
+using Basket.API.Wrappers;
 using Discount.gRPC.Protos;
 using MassTransit;
 using Microsoft.AspNetCore.Builder;
@@ -50,6 +51,8 @@ namespace Basket.API
             });
 
             services.AddScoped<IBasketRepository, BasketRepository>();
+            services.AddScoped<IRedisWrapper, RedisWrapper>();
+            
             services.AddAutoMapper(typeof(Startup));
         }
 

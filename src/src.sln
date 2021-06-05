@@ -45,6 +45,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{91E3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.RazorPage", "WebApps\Web.RazorPage\Web.RazorPage.csproj", "{FAEE923C-F5B7-49BD-8A6C-E52F889C9793}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F3FD42D5-32E5-4BD1-9796-BAD80A75DBB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.Tests", "Tests\Basket.Tests\Basket.Tests.csproj", "{641FF62C-8F0B-4821-BF2A-35D2B11A23D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +107,10 @@ Global
 		{FAEE923C-F5B7-49BD-8A6C-E52F889C9793}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAEE923C-F5B7-49BD-8A6C-E52F889C9793}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAEE923C-F5B7-49BD-8A6C-E52F889C9793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{641FF62C-8F0B-4821-BF2A-35D2B11A23D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{641FF62C-8F0B-4821-BF2A-35D2B11A23D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{641FF62C-8F0B-4821-BF2A-35D2B11A23D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{641FF62C-8F0B-4821-BF2A-35D2B11A23D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,6 +132,7 @@ Global
 		{FC7DB043-537E-4C2B-AB10-7E155357443A} = {BA0B2B32-8E46-4BB9-ADA4-AB57065779EB}
 		{A81A895F-55A2-42C4-A452-9DBCF25AA71D} = {BA0B2B32-8E46-4BB9-ADA4-AB57065779EB}
 		{FAEE923C-F5B7-49BD-8A6C-E52F889C9793} = {91E30B69-3A82-4D04-A191-40A8C9FDDDB6}
+		{641FF62C-8F0B-4821-BF2A-35D2B11A23D2} = {F3FD42D5-32E5-4BD1-9796-BAD80A75DBB7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B564CC2-073F-435D-8327-47A192239180}
