@@ -41,6 +41,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotAPiGw", "ApiGateways\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Aggregator", "ApiGateways\API.Aggregator\API.Aggregator.csproj", "{A81A895F-55A2-42C4-A452-9DBCF25AA71D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{91E30B69-3A82-4D04-A191-40A8C9FDDDB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.RazorPage", "WebApps\Web.RazorPage\Web.RazorPage.csproj", "{FAEE923C-F5B7-49BD-8A6C-E52F889C9793}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +99,10 @@ Global
 		{A81A895F-55A2-42C4-A452-9DBCF25AA71D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A81A895F-55A2-42C4-A452-9DBCF25AA71D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A81A895F-55A2-42C4-A452-9DBCF25AA71D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAEE923C-F5B7-49BD-8A6C-E52F889C9793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAEE923C-F5B7-49BD-8A6C-E52F889C9793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAEE923C-F5B7-49BD-8A6C-E52F889C9793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAEE923C-F5B7-49BD-8A6C-E52F889C9793}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +123,7 @@ Global
 		{EDBA7A2D-EF59-461F-B46D-ACC235C730BD} = {CDF494A5-C427-4A1E-9A48-7E498E006E65}
 		{FC7DB043-537E-4C2B-AB10-7E155357443A} = {BA0B2B32-8E46-4BB9-ADA4-AB57065779EB}
 		{A81A895F-55A2-42C4-A452-9DBCF25AA71D} = {BA0B2B32-8E46-4BB9-ADA4-AB57065779EB}
+		{FAEE923C-F5B7-49BD-8A6C-E52F889C9793} = {91E30B69-3A82-4D04-A191-40A8C9FDDDB6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B564CC2-073F-435D-8327-47A192239180}

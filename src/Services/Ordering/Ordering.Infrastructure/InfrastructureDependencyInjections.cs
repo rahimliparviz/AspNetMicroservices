@@ -16,9 +16,7 @@ namespace Ordering.Infrastructure
         {
             services.AddDbContext<OrderContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("OrderingConnectionString")));
-            // configuration.GetConnectionString("OrderingConnectionString"))
-            // services.AddScoped<IDbConnection>(cn => new NpgsqlConnection
-            //     ("Server=localhost;Port=5433;Database=OrderDb;User Id=admin;Password=admin1234;"));
+            
             // services.AddDbContext<OrderContext>(opts => {
             //     opts.EnableDetailedErrors();
             //     opts.UseNpgsql(configuration.GetConnectionString("OrderingConnectionString"));

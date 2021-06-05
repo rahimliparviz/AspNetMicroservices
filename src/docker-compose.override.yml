@@ -30,11 +30,46 @@ services:
   orderdb:
     container_name: orderdb
     environment:
-      ACCEPT_EULA: "Y"
-      SA_PASSWORD: 1StrongPwdclear
+     - ACCEPT_EULA=Y
+     - SA_PASSWORD=1StrongPwdclear
     restart: always
     ports:
       - "1433:1433"
+
+  ordering.api:
+    container_name: ordering.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:OrderingConnectionString=Server=orderdb;Database=OrderDb;User Id=sa;Password=1StrongPwdclear;"
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+    depends_on:
+      - orderdb
+      - rabbitmq
+    ports:
+      - "8004:80"
+#  orderdb:
+#    container_name: orderdb
+#    environment:
+#     - POSTGRES_USER=admin
+#     - POSTGRES_PASSWORD=admin1234
+#     - POSTGRES_DB=OrderDb
+#    restart: always
+#    ports:
+#    - "5433:5432"
+#    volumes:
+#     - postgres_data:/var/lib/postgresql/data/
+#
+#  ordering.api:
+#    container_name: ordering.api
+#    environment:
+#      - ASPNETCORE_ENVIRONMENT=Development
+#      - "DatabaseSettings:ConnectionString=Server=orderdb;Port=5432;Database=OrderDb;User Id=admin;Password=admin1234;"
+#      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+#    depends_on:
+#      - orderdb
+#      - rabbitmq
+#    ports:
+#      - "8004:80"
     
 
 
@@ -44,8 +79,6 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
-
-
   pgadmin:
     container_name: pgadmin
     environment:
@@ -86,7 +119,6 @@ services:
       - "8001:80"
 
 
-
   discount.api:
     container_name: discount.api
     environment:
@@ -109,17 +141,7 @@ services:
       - "8003:80"
 
 
-  ordering.api:
-    container_name: ordering.api
-    environment:
-    - ASPNETCORE_ENVIRONMENT=Development
-    - "ConnectionStrings:OrderingConnectionString=Server=orderdb;Database=OrderDb;User Id=sa;Password=1StrongPwdclear"  
-    - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
-    depends_on:
-    - orderdb
-    - rabbitmq
-    ports:
-    - "8004:80"
+
 
   ocelotapigw:
     container_name: ocelotapigw
@@ -148,3 +170,17 @@ services:
     ports:
     - "8005:80"
 
+
+  web.razorpage:
+    container_name: web.razorpage
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Development
+    - "ApiSettings:GatewayAddress=http://ocelotapigw"
+    depends_on:
+    - ocelotapigw
+    - catalog.api
+    - basket.api
+    - discount.api
+    - ordering.api
+    ports:
+    - "8006:80"

@@ -65,11 +65,18 @@ services:
       context: .
       dockerfile: ApiGateways/API.Aggregator/Dockerfile
 
+  web.razorpage:
+    image: ${DOCKER_REGISTRY-}webrazorpage
+    build:
+      context: .
+      dockerfile: WebApps/Web.RazorPage/Dockerfile
+
 volumes:
   mongo_data:
   postgres_data:
   pgadmin_data:
     
+
 
 
 

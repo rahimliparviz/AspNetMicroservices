@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Ordering.Domain.Common;
 using Ordering.Domain.Entities;
 
@@ -9,15 +10,23 @@ namespace Ordering.Infrastructure.Persistence
 {
     public class OrderContext : DbContext
     {
+        // private readonly IConfiguration _configuration;
+        //
+        // public OrderContext(IConfiguration configuration)
+        // {
+        //     _configuration = configuration;
+        // }
         public OrderContext(DbContextOptions<OrderContext> options) : base(options){}
 
         public DbSet<Order> Orders { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder
-                .UseSqlServer("Server=localhost;Database=OrderDb;User Id=sa;Password=1StrongPwdclear;", options => options.EnableRetryOnFailure());
-        }
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // {
+        //     // optionsBuilder
+        //     //     .UseSqlServer(_configuration.GetConnectionString("OrderingConnectionString"), options => options.EnableRetryOnFailure());
+        //     optionsBuilder
+        //         .UseSqlServer("Server=localhost;Database=OrderDb;User Id=sa;Password=1StrongPwdclear;", options => options.EnableRetryOnFailure());
+        // }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

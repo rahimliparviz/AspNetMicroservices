@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using API.Aggregator.Extensions;
 
 namespace API.Aggregator.Services
 {
@@ -24,7 +23,7 @@ namespace API.Aggregator.Services
                 return await _client.GetJsonAsync<IEnumerable<OrderResponseModel>>($"/api/v1/Order/{userName}");
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }

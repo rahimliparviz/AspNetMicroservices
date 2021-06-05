@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -18,6 +19,7 @@ namespace Ordering.API.Extensions
             var services = scope.ServiceProvider;
             var logger = services.GetRequiredService<ILogger<TContext>>();
             var context = services.GetService<TContext>();
+            var configuration = services.GetService<IConfiguration>();
 
             try
             {
@@ -31,8 +33,9 @@ namespace Ordering.API.Extensions
                 logger.LogInformation("Migrated database associated with context {DbContextName}", typeof(TContext).Name);
             }
             catch (SqlException ex)
-            {
-                logger.LogError(ex, "An error occurred while migrating the database used on context {DbContextName}", typeof(TContext).Name);
+            {   
+                logger.LogError(ex,"CONNECTION STRING --- {CONSTRING}",configuration.GetConnectionString("OrderingConnectionString"));
+                // logger.LogError(ex, "An error occurred while migrating the database used on context {DbContextName}", typeof(TContext).Name);
 
                 if (retryForAvailability < 50)
                 {

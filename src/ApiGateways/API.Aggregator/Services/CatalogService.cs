@@ -1,8 +1,6 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using API.Aggregator.Extensions;
 using API.Aggregator.Models;
 using Microsoft.AspNetCore.Components;
 
