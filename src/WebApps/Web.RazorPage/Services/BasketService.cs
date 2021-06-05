@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Web.RazorPage.Models;
 using Microsoft.AspNetCore.Components;
+using Web.RazorPage.Extensions;
 using Web.RazorPage.Models;
 
 namespace Web.RazorPage.Services
@@ -46,19 +47,12 @@ namespace Web.RazorPage.Services
 
         public async Task CheckoutBasket(BasketCheckout model)
         {
-            try
-            {
-                 await _client.PostJsonAsync<BasketCheckout>($"/Basket/Checkout", model);
-            }
-            catch (Exception e)
+      
+            var response = await _client.PostAsJson($"/Basket/Checkout", model);
+            if (!response.IsSuccessStatusCode)
             {
                 throw new Exception("Something went wrong when calling api.");
             }
-            // var response = await _client.PostAsJson($"/Basket/Checkout", model);
-            // if (!response.IsSuccessStatusCode)
-            // {
-            //     throw new Exception("Something went wrong when calling api.");
-            // }
         }
     }
 }

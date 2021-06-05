@@ -18,20 +18,7 @@ namespace Web.RazorPage.Services
 
         public async Task<IEnumerable<OrderResponse>> GetOrdersByUserName(string userName)
         {
-            var a =await _client.GetJsonAsync<List<OrderResponse>>($"/Order/{userName}");
-            return a;
-            // try
-            // {
-            //      var a =await _client.GetJsonAsync<List<OrderResponse>>($"/Order/{userName}");
-            //      return a;
-            // }
-            // catch (Exception e)
-            // {
-            //     return new List<OrderResponse>();
-            // }
-           
-            // var response = await _client.GetAsync($"/Order/{userName}");
-            // return await response.ReadContentAs<List<OrderResponse>>();
+         return  await _client.GetJsonAsync<List<OrderResponse>>($"/Order/{userName}");
         }
     }
 }
