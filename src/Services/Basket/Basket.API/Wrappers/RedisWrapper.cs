@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Basket.API.Entities;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
 
@@ -21,7 +22,7 @@ namespace Basket.API.Wrappers
             await _redisCache.RemoveAsync(userName);
         }
 
-        public async Task SetStringAsync(string userName, object obj)
+        public async Task SetStringAsync(string userName, ShoppingCart obj)
         {
             await _redisCache.SetStringAsync(userName, JsonConvert.SerializeObject(obj));
         }

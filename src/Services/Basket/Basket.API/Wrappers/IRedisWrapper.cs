@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Basket.API.Entities;
 
 namespace Basket.API.Wrappers
 {
@@ -6,6 +7,6 @@ namespace Basket.API.Wrappers
     {
         Task<string> GetStringAsync(string userName);
         Task RemoveAsync(string userName);
-        Task SetStringAsync(string userName,object obj);
+        Task SetStringAsync(string userName,ShoppingCart obj);
     }
 }

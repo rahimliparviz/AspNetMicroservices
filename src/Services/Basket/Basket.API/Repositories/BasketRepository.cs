@@ -17,11 +17,7 @@ namespace Basket.API.Repositories
             _redisCache = redisCache;
         }
 
-        // public BasketRepository(IDistributedCache redisCache)
-        // {
-        //     _redisCache = redisCache;
-        // }
-
+      
         public async Task DeleteBasket(string userName)
         {
             await _redisCache.RemoveAsync(userName);
@@ -39,9 +35,9 @@ namespace Basket.API.Repositories
         
         public async Task<ShoppingCart> UpdateBasket(ShoppingCart basket)
         {
-            await _redisCache.SetStringAsync(basket.UserName, JsonConvert.SerializeObject(basket));
-
-            return await GetBasket(basket.UserName);
+            await _redisCache.SetStringAsync(basket.UserName, basket);
+            return  await GetBasket(basket.UserName);
+          
         }
     }
 }
